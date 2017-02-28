@@ -1,0 +1,22 @@
+<ion-menu [content]="content">
+    <ion-content>
+        <!-- <div class="header">
+            <img src="http://www.savingadvice.com/articles/wp-content/uploads/2014/04/library.jpg" />
+        </div> -->
+        <ion-toolbar primary>
+            <ion-title>UM-LIC</ion-title>
+        </ion-toolbar>
+        <ion-list *ngIf="isAuthenticated()" class="menu">
+            <button ion-item>
+                <ion-icon name="home"></ion-icon>&nbsp;Home
+            </button>
+            <button ion-item>
+                <ion-icon (click)="clearData()" name="ios-settings"></ion-icon>&nbsp;Clear data
+            </button>
+            <button (click)="logout()" ion-item>
+                <ion-icon name="log-out"></ion-icon>&nbsp;Logout
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav id="#authenticated" #content [root]="rootPage"></ion-nav>

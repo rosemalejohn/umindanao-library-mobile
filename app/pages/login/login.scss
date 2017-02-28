@@ -1,0 +1,31 @@
+.login {
+	background-color: #c6514f;
+	.logo {
+		margin-top: 50px;
+
+		img {
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+		}
+	}
+
+	ion-item {
+		background-color: #be4743;
+		border: none !important;
+		padding-right: 16px;
+
+		ion-input {
+			color: white;
+		}
+
+		ion-label {
+			color: #e0e0e0;
+		}
+	}
+
+	.button {
+		text-transform: normal !important;
+		font-weight: normal;
+	}
+}

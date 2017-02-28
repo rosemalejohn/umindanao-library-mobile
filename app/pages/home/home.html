@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar light>
+        <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content 
+            refreshingSpinner="dots"
+            refreshingText="Fetching resources..."></ion-refresher-content>
+    </ion-refresher>
+    <ion-searchbar (ionInput)="getResource($event)"></ion-searchbar>
+    <ion-spinner primary *ngIf="fetching"></ion-spinner>
+    <ion-list>
+        <ion-item *ngFor="let resource of resources">
+            <ion-thumbnail item-left>
+                <img src="{{ resource.photo || 'img/logo.png' }}">
+            </ion-thumbnail>
+            <h2>{{ resource.name }}</h2>
+            <p>{{ resource.details }} • 1988</p>
+            <button (click)="showResource(resource)" clear item-right>View</button>
+        </ion-item>
+    </ion-list>
+</ion-content>

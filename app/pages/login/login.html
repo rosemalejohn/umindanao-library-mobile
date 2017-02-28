@@ -1,0 +1,29 @@
+<ion-content class="login" light>
+    <div class="logo">
+        <img width="60px" src="img/logo.png" />
+        <h4 style="color: white; text-align: center; font-weight: lighter;">University of Mindanao</h4>
+    </div>
+    <form (ngSubmit)="login()" padding>
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>Email</ion-label>
+                <ion-input [(ngModel)]="email" type="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Password</ion-label>
+                <ion-input [(ngModel)]="password" type="password"></ion-input>
+            </ion-item>
+        </ion-list>
+        <ion-row>
+            <ion-col>
+                <button type="submit" primary block>
+                    <ion-icon name="log-in"></ion-icon>
+                    Sign in
+                </button>
+            </ion-col>
+            <ion-col>
+                <button (click)="register()" type="button" primary block>Create account</button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

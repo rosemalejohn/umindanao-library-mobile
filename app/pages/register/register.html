@@ -1,0 +1,77 @@
+<ion-header>
+
+	<ion-navbar primary>
+		<ion-title>{{ isUpdate ? 'Update account' : 'Create account' }}</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content class="register" padding>
+	<form (ngSubmit)="submit()" style="margin-top: 20px;">
+		<h5>Select type</h5>
+		<ion-list> 
+			<ion-item>
+				<ion-label stacked>Are you?</ion-label>
+				<ion-select [(ngModel)]="account.type">
+					<ion-option value="student">Student</ion-option>
+					<ion-option value="faculty">Faculty</ion-option>
+				</ion-select>
+			</ion-item>
+		</ion-list>
+		<h5>Personal info</h5> 
+		<ion-list>
+			<ion-item>
+				<ion-label stacked>First name</ion-label> 
+				<ion-input [(ngModel)]="account.firstname" type="text"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Middle name</ion-label>
+				<ion-input [(ngModel)]="account.middlename" type="text"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Last name</ion-label>
+				<ion-input [(ngModel)]="account.lastname" type="text"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>ID Number</ion-label>
+				<ion-input maxlength="6" [(ngModel)]="account.id_number" type="text"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>College</ion-label>
+				<ion-select [(ngModel)]="account.college_id">
+					<ion-option *ngFor="let college of colleges" value="{{ college.id }}">{{ college.name }}</ion-option>
+				</ion-select>
+			</ion-item>
+			<ion-item *ngIf="account.type == 'student'">
+				<ion-label stacked>Course</ion-label>
+				<ion-select [(ngModel)]="account.course_id">
+					<ion-option *ngFor="let course of courses" value="{{ course.id }}">{{ course.code }}</ion-option>
+				</ion-select>
+			</ion-item>
+		</ion-list>
+		<h5>Account</h5>
+		<ion-list>
+
+			<ion-item>
+				<ion-label stacked>Email</ion-label>
+				<ion-input [(ngModel)]="account.email" type="email" placeholder="email@umindanao.edu.ph"></ion-input>
+			</ion-item>
+
+			<ion-item *ngIf="!isUpdate">
+				<ion-label stacked>Password</ion-label>
+				<ion-input [(ngModel)]="account.password" type="password"></ion-input>
+			</ion-item>
+
+			<ion-item *ngIf="!isUpdate">
+				<ion-label stacked>Re-type password</ion-label>
+				<ion-input [(ngModel)]="account.password_confirmation" type="password"></ion-input>
+			</ion-item>
+
+		</ion-list>
+		<ion-list>
+			<button type="submit" block>Save account</button>
+		</ion-list>
+	</form>
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar light>
+        <button menuToggle><ion-icon name="menu"></ion-icon></button>
+        <ion-title>{{ profile.firstname }}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="profile">
+    <ion-grid>
+        <ion-row>
+            <ion-col width-25>
+                <img src="img/default-photo.png" />
+            </ion-col>
+            <ion-col width-75>
+                <h3 class="name">{{ profile.full_name }}</h3>
+                <p class="type">{{ profile.type }}</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-list>
+        <ion-item>
+            <ion-icon name="contact" item-left></ion-icon>
+            <h2>ID Number</h2>
+            <p>{{ profile.id_number }}</p>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="mail" item-left></ion-icon>
+            <h2>Email</h2>
+            <p>{{ profile.email }}</p>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="school" item-left></ion-icon>
+            <h2>College</h2>
+            <p>{{ profile.college ? profile.college.name : 'N/A' }}</p>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="book" item-left></ion-icon>
+            <h2>Course</h2>
+            <p>{{ profile.course ? profile.course.name : 'N/A' }}</p>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="calendar" item-left></ion-icon>
+            <h2>Date Joined</h2>
+            <p>{{ profile.created_at | date:'MMMM d, y' }}</p>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="calendar" item-left></ion-icon>
+            <h2>Last updated</h2>
+            <p>{{ profile.updated_at | date:'MMMM d, y' }}</p>
+        </ion-item>
+    </ion-list>
+    <ion-row>
+        <ion-col>
+            <button (click)="editProfile()" type="button" primary block>Update profile</button>
+        </ion-col>
+    </ion-row>
+</ion-content>
